@@ -1,4 +1,4 @@
-# Studia
+# MiI
 
 Skrypty matalaba z przedmiotu Modelowanie i Identyfikacja 
 
