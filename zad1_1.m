@@ -17,6 +17,7 @@ xlabel('czas [s]')
 ylabel('amlituda [-]')
 title('Wykes wartoœci funkcji w czasie dla f_{próbkowania}=200 Hz')
 grid on
+legend('f=1Hz','f=4Hz','f=6Hz')
 
 
 subplot(2,1,2)
@@ -36,3 +37,4 @@ xlabel('czas [s]')
 ylabel('amlituda [-]')
 title('Wykes wartoœci funkcji w czasie dla f_{próbkowania}=5 Hz')
 grid on
+legend('f=1Hz','f=4Hz','f=6Hz')

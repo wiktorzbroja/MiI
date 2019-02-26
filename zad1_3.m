@@ -1,5 +1,5 @@
 fs=1000;
-N=1000
+N=1000;
 t=[1:N]*1/fs;
 x=2*sin(2*pi*10*t);
 %white_noise=wgn(1,1000,20*log(2));
