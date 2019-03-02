@@ -1,9 +1,9 @@
 clear all
 
-k=-5:1:10
+k=-5:1:10;
 x=heaviside(k)-heaviside(k-8);
 h=sin(2*pi*k/8).*(heaviside(k)-heaviside(k-8));
-y=conv(x,h)
+y=conv(x,h);
 
 
 subplot(3,1,1)
