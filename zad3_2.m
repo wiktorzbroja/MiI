@@ -2,7 +2,7 @@ f1=10;
 f2=80;
 f3=120;
 A=2;
-fs = 400; % czêstotliwoœæ próbkowania                    
+fs = 4000; % czêstotliwoœæ próbkowania                    
 T = 1/fs; % okres próbkowania       
 t = 0:T:1-T; %wektor czasu
 N=length(t); % zapisanie d³ugoœci wekotra czasu do póŸniejszych obliczeñ
@@ -51,3 +51,5 @@ ylabel('Przesuniêcie fazowe [\circ]')
 xline(fn, '--r', 'Linewidth', 3);
 xline(-fn, '--r', 'Linewidth', 3);
 grid on
+
+save ('wyniki3_3.mat', 'f', 'M', 'y');
