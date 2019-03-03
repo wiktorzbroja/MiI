@@ -19,17 +19,15 @@ wart_max=max(y) % wartosæ maksymalna
 wart_min=min(y) % wartosæ minimalna
 
 wariancja_ML=var(y) %wariancja przy u¿yciu wzoru wbudowanego
-wariancja=mean(power(y-wart_sr,2)).*(N/(N-1)) %wbudowana w MatLabie komenda
-% korzysta z wersji nieobci¹¿onej dlatego aby wyniki siê zgadza³y
-% zastosowano odpowiednie przeskalowanie ^ N/(N-1) 
+wariancja=sum(power(y-wart_sr,2))./(N-1) %w³asna implementacja nieobci¹¿onego estymatora
 
 odchylenie_std_ML=std(y) %odchylenie standardowe przy u¿yciu wzoru wbudowanego
-odchylenie_std=sqrt(sigma_kw) %odchylenie standardowe
+odchylenie_std=sqrt(wariancja) %odchylenie standardowe
 
 energia=sum(y.^2) %energia sygna³u
 
 moc_ML=bandpower(y) %moc œrednia sygna³u przy u¿yciu wzoru wbudowanego
-moc=energia/N %moc œrednia sygna³u
+moc_sr=energia/N %moc œrednia sygna³u
  
 wart_sk_ML=rms(y) %wartoœæ skuteczna sygna³u przy u¿yciu wzoru wbudowanego
 wart_sk=sqrt(moc_sr)%wartoœæ skuteczna sygna³u
@@ -37,4 +35,4 @@ wart_sk=sqrt(moc_sr)%wartoœæ skuteczna sygna³u
 SNR_ML=snr(x,white_noise)% SNR sygna³u wbudowany wzór
 
 moc_szumu=sum(white_noise.^2)/N; %moc szumu niezbêdna do wyznaczenia SNR
-SNR=10*log10(moc_syg_baz/moc_szumu) %SNR funkcja w³asna
+SNR=10*log10(sum(x.^2)/moc_szumu/N) %SNR funkcja w³asna
