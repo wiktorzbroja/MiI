@@ -13,4 +13,8 @@ hold on
 plot(y, 'r--')
 set(gcf,'color','w');
 xlim([0 400])
+title('Porównanie orginalnego i odtworzonego sygna³u z æw. 3.2')
+
 legend('orgina³','odtworzony')
+xlabel('czas [s]')
+ylabel('wartoœæ sygna³u [-]')
