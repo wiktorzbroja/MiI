@@ -11,14 +11,14 @@ y=conv(x,h);
 %generowanie wykresów
 subplot(3,1,1)
 plot(t,x)
-xlabel('Czas [-]')
+xlabel('Czas [s]')
 ylabel('amlituda [-]')
 title('Wykes funkcji \itx(k)')
 grid on
 
 subplot(3,1,2)
 plot(t,h)
-xlabel('Czas [-]')
+xlabel('Czas [s]')
 ylabel('amlituda [-]')
 title('Wykes funkcji \ity(k)')
 grid on
@@ -31,3 +31,4 @@ ylabel('amlituda [-]')
 title('Wykes funkcji splotu \itx(k)*h(k)')
 grid on
 set(gcf,'color','w');
+xlim([0 6])
