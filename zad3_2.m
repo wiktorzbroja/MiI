@@ -1,7 +1,7 @@
 f1=10;
 f2=80;
 f3=120;
-A=2;
+A=1;
 
 fs = 4000; % czêstotliwoœæ próbkowania                                     
 T = 1/fs; % okres próbkowania       
@@ -11,9 +11,9 @@ N=length(t); % zapisanie d³ugoœci wekotra czasu do póŸniejszych obliczeñ
 fn=fs/2; %czêstotliwoœæ Nyquista
 
 %tworzenie trzech sk³¹dowych
-y1 = A*sin(2*pi*f1*t);
+y1 = 1*A*sin(2*pi*f1*t);
 y2 = 3*A*sin(2*pi*f2*t+deg2rad(20));
-y3 = A*sin(2*pi*f3*t+deg2rad(40));
+y3 = 1*A*sin(2*pi*f3*t+deg2rad(40));
 y=y1+y2+y3; % z³o¿enie sygna³ów
 
 Y1=fft(y); %szybka transformata Fouriera
@@ -53,4 +53,4 @@ xline(fn, '--r', 'Linewidth', 3);
 xline(-fn, '--r', 'Linewidth', 3);
 grid on
 
-save ('wyniki3_3.mat', 'f', 'M', 'y');
+save ('wyniki3_2.mat','f','Y2','M','Fi','y');
