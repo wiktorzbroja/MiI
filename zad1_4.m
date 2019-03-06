@@ -45,7 +45,11 @@ title(['\rmWykres autokorelacji nieunormowanej funkcji \itx(t)=sin(2\cdot\pi\cdo
 grid on
 
 figure(2)
-plot(t2,kor_biased, 'r')
+plot(t2,kor_biased,':','LineWidth',2)
+set(gcf,'color','w');
+hold on
+plot(t2,xcorr(x,x,'biased'), 'r--')
+legend('korelacja - w³asna funkcja', 'korelacja MatLab')
 xlabel('t [s]')
 ylabel('amlituda [-]')
 title('Wykres autokorelacji funkcji x(t)')
@@ -53,7 +57,11 @@ title(['\rmWykres autokorelacji obci¹¿onej funkcji \itx(t)=sin(2\cdot\pi\cdot10\
 grid on
 
 figure(3)
-plot(t2,kor_unbiased, 'r')
+plot(t2,kor_unbiased,':','LineWidth',2)
+set(gcf,'color','w');
+hold on
+plot(t2,xcorr(x,x,'unbiased'), 'r--')
+legend('korelacja - w³asna funkcja', 'korelacja MatLab')
 xlabel('t [s]')
 ylabel('amlituda [-]')
 title('Wykres autokorelacji funkcji x(t)')
