@@ -1,4 +1,4 @@
-k=0:1:8;% wektor indeksuj¹cy?
+k=0:1:;% wektor indeksuj¹cy?
 %okreœlenie funkcji i ich autokorelacji
 x=heaviside(k)-heaviside(k-8);
 h=sin(2*pi*k/8).*(heaviside(k)-heaviside(k-8));

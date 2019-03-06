@@ -3,7 +3,7 @@ f2=80;
 f3=120;
 A=1;
 
-fs = 4000; % czêstotliwoœæ próbkowania                                     
+fs = 400; % czêstotliwoœæ próbkowania                                     
 T = 1/fs; % okres próbkowania       
 t = 0:T:1-T; %wektor czasu
 N=length(t); % zapisanie d³ugoœci wekotra czasu do póŸniejszych obliczeñ

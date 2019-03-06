@@ -20,7 +20,7 @@ subplot(3,1,2)
 plot(t,h)
 xlabel('Czas [s]')
 ylabel('amlituda [-]')
-title('Wykres funkcji \ity(k)')
+title('Wykres filtru dolnoprzepustowego \ity(k)')
 grid on
 
 subplot(3,1,3)

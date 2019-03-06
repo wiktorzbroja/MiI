@@ -14,7 +14,7 @@ for k=1:(2*N-1)
         kor(k)=sum(x1.*x2_mv); %sumowanie wszystkich iloczynów przesuniêtej 
         % funkcji x2 oraz x1 
 end
-t2=[1:length(kor)]*1/fs;
+t2=[1:length(kor)]*1/fs-1;
 %tworzenie wykresu
 plot(t2,kor,':','LineWidth',2)
 set(gcf,'color','w');
@@ -24,5 +24,5 @@ legend('korelacja - w³asna funkcja', 'korelacja MatLab')
 xlabel('t [s]')
 ylabel('amlituda [-]')
 title('Wykres autokorelacji funkcji x(t)')
-title(['\rmWykes autokorelacji funkcji \itx(t)=sin(2\cdot\pi\cdot10\cdott)\rm '])
+title(['\rmWykres autokorelacji funkcji \itx(t)=sin(2\cdot\pi\cdot10\cdott)\rm '])
 grid on

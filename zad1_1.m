@@ -19,7 +19,7 @@ plot(t, y3,'g','LineWidth',1.5)
 set(gcf,'color','w');
 xlabel('czas [s]')
 ylabel('amlituda [-]')
-title(['\rmWykes funkcji \itsin(2\pi\cdotf\cdott)\rm w czasie dla \itf_{próbkowania}= ', num2str(fs), ' Hz'])
+title(['\rmWykres funkcji \itsin(2\pi\cdotf\cdott)\rm w czasie dla \itf_{próbkowania}= ', num2str(fs), ' Hz'])
 grid on
 legend(['f=', num2str(f1), 'Hz'],['f=', num2str(f2), 'Hz'],['f=', num2str(f3), 'Hz'])
 

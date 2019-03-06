@@ -1,4 +1,4 @@
-%Wywo³aæ zad3_2.m
+zad3_2
 subplot(2,1,1)
 set(gcf,'color','w');
 stem(f,M)
