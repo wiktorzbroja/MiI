@@ -9,6 +9,15 @@ kor_ML=xcorr(x,x);%koreleacja przy u¿yciu wbudowanej funkcji MatLab
 x1=horzcat(zeros(1,N), x); % dodanie N zer przed wektorem funkcji
 x2=horzcat(x, zeros(1,N)); % dodanie N zer za wektorem funkcji
 
+%2 razy mniej obliczeñ hehehe
+y1 = [x zeros(1,N)];
+kor_wilq = zeros(1,2*N-1);
+for k = 0:N-1
+   y_mv = [zeros(1,k) y1(1:end-k)];
+   kor_wilq(k+N) = sum(y_mv.*y1);
+end
+kor_wilq(1:N-1) = fliplr(kor_wilq(N+1:2*N-1));
+
 for k=1:(2*N-1)
         x2_mv=horzcat(zeros(1,k), x2(1:end-k));% przesuwanie funkcji x2
         kor(k)=sum(x1.*x2_mv); %sumowanie wszystkich iloczynów przesuniêtej 
