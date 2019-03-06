@@ -24,7 +24,7 @@ subplot(2,1,1)
 plot(t,y)
 xlabel('czas [s]')
 ylabel('amlituda [-]')
-title(['Wykes funkcji y dla k=', num2str(ilosc_k(j))])
+title(['Wykres funkcji y dla k=', num2str(ilosc_k(j))])
 grid on
 txt='$$ y(t)=\displaystyle\sum_{k=1}^{\infty} \frac{4A}{k\pi} \sin (k\omega_0t) $$';
 text(2.7,1.5,txt,'Interpreter','latex')

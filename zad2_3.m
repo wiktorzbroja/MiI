@@ -13,14 +13,14 @@ subplot(3,1,1)
 plot(t,x)
 xlabel('Czas [s]')
 ylabel('amlituda [-]')
-title('Wykes funkcji \itx(k)')
+title('Wykres funkcji \itx(k)')
 grid on
 
 subplot(3,1,2)
 plot(t,h)
 xlabel('Czas [s]')
 ylabel('amlituda [-]')
-title('Wykes funkcji \ity(k)')
+title('Wykres funkcji \ity(k)')
 grid on
 
 subplot(3,1,3)
@@ -28,7 +28,7 @@ tt=(T./N):(T./N):(length(x)+length(h)-1)*(T./N);
 plot(tt,y)
 xlabel('Przesuniêcie [s]')
 ylabel('amlituda [-]')
-title('Wykes funkcji splotu \itx(k)*h(k)')
+title('Wykres funkcji splotu \itx(k)*h(k)')
 grid on
 set(gcf,'color','w');
 xlim([0 6])

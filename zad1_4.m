@@ -23,6 +23,6 @@ plot(t2,kor_ML, 'r--')
 legend('korelacja - w³asna funkcja', 'korelacja MatLab')
 xlabel('t [s]')
 ylabel('amlituda [-]')
-title('Wykes autokorelacji funkcji x(t)')
+title('Wykres autokorelacji funkcji x(t)')
 title(['\rmWykes autokorelacji funkcji \itx(t)=sin(2\cdot\pi\cdot10\cdott)\rm '])
 grid on

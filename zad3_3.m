@@ -2,7 +2,7 @@
 subplot(2,1,1)
 set(gcf,'color','w');
 stem(f,M)
-title('Wykres amplitudowo-czestotliwosciowy fukncji z æw 3.2')
+title('Wykres amplitudowo-czestotliwosciowy funkcji z æw 3.2')
 xlabel('Czêstotliwoœæ (Hz)')
 ylabel('Amplituda [-]')
 xline(fn, '--r', 'Linewidth', 3);
@@ -44,7 +44,7 @@ Fi=rad2deg(angle(X2)); % obliczanie czêstotliwoœci, przeliczanie na stopnie
 
 subplot(2,1,2)
 stem(f,M)
-title('Wykres amplitudowo-czestotliwosciowy fukncji z æw 3.3')
+title('Wykres amplitudowo-czestotliwosciowy funkcji z æw 3.3')
 xlabel('Czêstotliwoœæ (Hz)')
 ylabel('Amplituda [-]')
 xline(fn, '--r', 'Linewidth', 3);

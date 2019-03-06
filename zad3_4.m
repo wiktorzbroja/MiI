@@ -1,13 +1,16 @@
 clc
 clear all
 
-load('wyniki3_3.mat')
+load('wyniki3_2.mat')
 
 N=4000;
 fs=4000;
 T = 1/fs; % okres próbkowania       
 t = 0:T:1-T; %wektor czasu
-y2=N*ifft(ifftshift(Y2));
+Y3=M.*cos(Fi2)+i*M.*sin(Fi2);
+
+
+y2=N*ifft(ifftshift(Y3));
 
 t = [0:1:length(y)-1]/fs; %recompute time index 
 plot(t,y2,':','LineWidth',1.5);%reconstructed signal

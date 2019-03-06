@@ -11,5 +11,5 @@ set(gcf,'color','w');
 xlabel('czas [s]')
 ylabel('amlituda [-]')
 legend('\itsin(40\pi\cdott)' )
-title(['\rmWykes funkcji \itsin(2\pi\cdotf\cdott)\rm w czasie dla \itf_{próbkowania}= ', num2str(fs), ' Hz'])
+title(['\rmWykres funkcji \itsin(2\pi\cdotf\cdott)\rm w czasie dla \itf_{próbkowania}= ', num2str(fs), ' Hz'])
 grid on

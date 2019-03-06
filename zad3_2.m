@@ -32,7 +32,7 @@ X2=Y2;
 prog = max(abs(Y2))/10000; %okreœlenie progu tolerancji
 X2(abs(Y2)<prog) = 0; %dla ma³ych wartoœci - przyrównane do zera
 Fi=rad2deg(angle(X2)); % obliczanie czêstotliwoœci, przeliczanie na stopnie  
-
+Fi2=angle(Y2);% faza bez filtracji do zadania 3.4
 %Generowanie wykresów
 subplot(2,1,1)
 set(gcf,'color','w');
@@ -53,4 +53,4 @@ xline(fn, '--r', 'Linewidth', 3);
 xline(-fn, '--r', 'Linewidth', 3);
 grid on
 
-save ('wyniki3_2.mat','f','Y2','M','Fi','y');
+save ('wyniki3_2.mat','f','Y2','M','Fi2','y');

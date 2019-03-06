@@ -11,7 +11,7 @@ plot(t,y)
 set(gcf,'color','w');
 xlabel('czas [s]')
 ylabel('amlituda [-]')
-title(['\rmWykes funkcji \itx(t)=sin(2\cdot\pi\cdot10\cdott)\rm w czasie dla \itf_{próbkowania}= ', num2str(fs), ' Hz'])
+title(['\rmWykres funkcji \itx(t)=sin(2\cdot\pi\cdot10\cdott)\rm w czasie dla \itf_{próbkowania}= ', num2str(fs), ' Hz'])
 grid on
 
 wart_sr=mean(y) % wartoœæ œrednia
