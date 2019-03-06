@@ -11,25 +11,24 @@ x2=horzcat(x, zeros(1,N)); % dodanie N zer za wektorem funkcji
 
 %2 razy mniej obliczeñ hehehe
 y1 = [x zeros(1,N)];
-kor_wilq = zeros(1,2*N-1);
-kor_unbiased = kor_wilq;
+kor = zeros(1,2*N-1);
+kor_unbiased = kor;
 
 for k = 0:N-1
    y_mv = [zeros(1,k) y1(1:end-k)];
-   kor_wilq(k+N) = sum(y_mv.*y1);
-   kor_unbiased(k+N) = kor_wilq(k+N)/(N-k);
+   kor(k+N) = sum(y_mv.*y1);
+   kor_unbiased(k+N) = kor(k+N)/(N-k);
 end
 
-kor_wilq(1:N-1) = fliplr(kor_wilq(N+1:2*N-1));
+kor(1:N-1) = fliplr(kor(N+1:2*N-1));
 kor_unbiased(1:N-1) = fliplr(kor_unbiased(N+1:2*N-1));
 
-for k=1:(2*N-1)
-        x2_mv=horzcat(zeros(1,k), x2(1:end-k));% przesuwanie funkcji x2
-        kor(k)=sum(x1.*x2_mv); %sumowanie wszystkich iloczynów przesuniêtej 
-        % funkcji x2 oraz x1 
-end
+%for k=1:(2*N-1)
+%        x2_mv=horzcat(zeros(1,k), x2(1:end-k));% przesuwanie funkcji x2
+%        kor(k)=sum(x1.*x2_mv); %sumowanie wszystkich iloczynów przesuniêtej 
+%        % funkcji x2 oraz x1 
+%end
 
-kor = kor_wilq; 
 kor_biased = kor./N;
 
 t2=[1:length(kor)]*1/fs-1;
@@ -42,5 +41,21 @@ legend('korelacja - w³asna funkcja', 'korelacja MatLab')
 xlabel('t [s]')
 ylabel('amlituda [-]')
 title('Wykres autokorelacji funkcji x(t)')
-title(['\rmWykres autokorelacji funkcji \itx(t)=sin(2\cdot\pi\cdot10\cdott)\rm '])
+title(['\rmWykres autokorelacji nieunormowanej funkcji \itx(t)=sin(2\cdot\pi\cdot10\cdott)\rm '])
+grid on
+
+figure(2)
+plot(t2,kor_biased, 'r')
+xlabel('t [s]')
+ylabel('amlituda [-]')
+title('Wykres autokorelacji funkcji x(t)')
+title(['\rmWykres autokorelacji obci¹¿onej funkcji \itx(t)=sin(2\cdot\pi\cdot10\cdott)\rm '])
+grid on
+
+figure(3)
+plot(t2,kor_unbiased, 'r')
+xlabel('t [s]')
+ylabel('amlituda [-]')
+title('Wykres autokorelacji funkcji x(t)')
+title(['\rmWykres autokorelacji nieobci¹¿onej funkcji \itx(t)=sin(2\cdot\pi\cdot10\cdott)\rm '])
 grid on
