@@ -26,7 +26,11 @@ xlabel('Czas [s]')
 ylabel('Rxy [j^2]')
 title( 'Korelacja Rxy')
 
+[max index] = max(Rxy);
+v_dz = 320;
+d = t(index) * v_dz;
 
+figure(2)
 N=length(x);
 N2=round(N/2);
 T=max(t);
@@ -37,7 +41,6 @@ X=sqrt(X2.*conj(X2));
 Sx=X*(1/df)*(1/df)*N/2; %gêstoœæ energii
 Gx=Sx/T; % gêstoœæ mocy
 
-figure(2)
 stem(f(1:N2),Gx(1:N2))
 set(gcf,'color','w');
 axis tight
