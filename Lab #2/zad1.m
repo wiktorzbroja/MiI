@@ -9,6 +9,7 @@ Rxx= xcorr(x,x);
 Rxy= xcorr(x,y);
 
 t=(-length(Rxx)/2:length(Rxx)/2-1)/fs;%wektor czasu w Hz
+figure(1)
 subplot(211)
 set(gcf,'color','w');
 plot(t,Rxx)
@@ -24,3 +25,22 @@ axis tight
 xlabel('Czas [s]')
 ylabel('Rxy [j^2]')
 title( 'Korelacja Rxy')
+
+
+N=length(x);
+N2=round(N/2);
+T=max(t);
+df=fs/N; 
+f=(0:N2)*df ;
+X2=fft(x);
+X=sqrt(X2.*conj(X2));
+Sx=X*(1/df)*(1/df)*N/2; %gêstoœæ energii
+Gx=Sx/T; % gêstoœæ mocy
+
+figure(2)
+stem(f(1:N2),Gx(1:N2))
+set(gcf,'color','w');
+axis tight
+title('Widmowa gestosc mocy');
+xlabel('Czêstotliwoœæ [Hz]')
+ylabel('Gêstoœæ widmowa [j^2/Hz]')
