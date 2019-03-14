@@ -24,3 +24,7 @@ axis tight
 xlabel('Czas [s]')
 ylabel('Rxy [j^2]')
 title( 'Korelacja Rxy')
+
+[max index] = max(Rxy);
+v_dz = 320;
+d = t(index) * v_dz;
