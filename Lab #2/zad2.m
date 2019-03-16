@@ -15,28 +15,33 @@ phase=unwrap(angle(H));
 
 df=2*fn/length(Y);
 f=0:df:fn;
+figure(1)
+set(gcf,'color','w');
 
 subplot(221)
+semilogx(f,20*log10(mod(1:length(Y)/2+1)))
 title('wykres amplitudowo-czêstotliwoœciowy (skala logarytmiczna)')
 ylabel('Wzmocnienie [-]');
 xlabel('czêstotliwoœæ [Hz]');
-semilogx(f,20*log10(mod(1:length(Y)/2+1)))
 grid on
+
 subplot(223)
+semilogx(f, phase(1:length(Y)/2+1))
 title('wykres fazowo-czêstotliwoœciowy')
 ylabel('przesuniêcie w fazie [rad]');
 xlabel('czêstotliwoœæ [Hz]');
-semilogx(f, phase(1:length(Y)/2+1))
 grid on
+
 subplot(222)
+plot(f,20*log10(mod(1:length(Y)/2+1)))
 title('wykres amplitudowo-czêstotliwoœciowy (skala liniowa)')
 ylabel('Wzmocnienie [-]');
 xlabel('czêstotliwoœæ [Hz]');
-plot(f,20*log10(mod(1:length(Y)/2+1)))
 grid on
+
 subplot(224)
+plot(f, phase(1:length(Y)/2+1))
 title('wykres fazowo-czêstotliwoœciowy')
 ylabel('przesuniêcie w fazie [rad]');
 xlabel('czêstotliwoœæ [Hz]');
-plot(f, phase(1:length(Y)/2+1))
 grid on
