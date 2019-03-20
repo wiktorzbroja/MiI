@@ -59,3 +59,19 @@ title('wykres fazowo-czêstotliwoœciowy')
 ylabel('przesuniêcie w fazie [rad]');
 xlabel('czêstotliwoœæ [Hz]');
 grid on
+
+ma_nr = 100;
+H_ma = H;
+for i=1:length(H)
+    if  length(H)-ma_nr > i > ma_nr
+        H_ma(i) = mean(H(i-ma_nr:i+ma_nr)); 
+    else
+        if i < ma_nr
+            H_ma(i) = mean(H(1:i+ma_nr));
+        else
+            H_ma(i) = mean(H(i-ma_nr:-1));
+        end
+    end
+end
+figure(2)
+plot(f,abs(H_ma))
