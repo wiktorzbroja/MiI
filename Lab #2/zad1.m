@@ -30,10 +30,12 @@ title( 'Korelacja Rxy')
 v_dz = 320;
 d = t(index) * v_dz;
 
-figure(2)
-periodogram(x)
-
 % figure(2)
+% periodogram(x)
+% [Pxx, F] = periodogram(x,[],'power',fs);
+% plot(F,Pxx);
+% 
+% figure(3)
 % N=length(x);
 % N2=round(N/2);
 % T=max(t);
@@ -44,10 +46,21 @@ periodogram(x)
 % X=abs(X2);
 % Sx=X*(1/df)*(1/df)*N/2; %gêstoœæ energii
 % Gx=Sx/T; % gêstoœæ mocy
-% 
-% stem(f(1:N2),Gx(1:N2))
-% set(gcf,'color','w');
-% axis tight
-% title('Widmowa gestosc mocy');
-% xlabel('Czêstotliwoœæ [Hz]')
-% ylabel('Gêstoœæ widmowa [j^2/Hz]')
+% plot(f(1:N2),(Gx(1:N2)))
+
+% znormalizowane PSD
+figure(2)
+L=length(x);
+X=fft(x);
+f = fs./2.*linspace(0,1,L/2);
+% mno¿enie przez dwa daje jednostronne, dzielenie przez N^2 daje skalowanie
+% tylko jeœli N to liczba próbek i dodatkowo u¿yta przy fft
+Pxx = 2.*(X(1:L/2).*conj(X(1:L/2)))./L./L;
+plot(f,Pxx);
+axis tight;
+grid on;
+set(gcf,'color','w');
+axis tight
+title('Widmowa gestosc mocy');
+xlabel('Czêstotliwoœæ [Hz]')
+ylabel('Gêstoœæ widmowa [j^2/Hz]')
