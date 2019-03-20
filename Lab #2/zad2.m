@@ -14,64 +14,56 @@ X=X(1:length(X)/2+1);
 df=fn/length(Y);
 f=0:df:fn-df;
 
-%filt dolnoprzepustowy
+%filtr dolnoprzepustowy
 %            K
 %G(s) = -------------
 %       T*2pi*j*f + 1
-K = ones(1,length(f));
-fgr = fn;
-w0=2*pi/fgr;
-F = K./(1+w0.*f.*1i);
+
+fgr = 500; %[Hz] Dobra³em tak, ¿eby w paœmie przenoszenia w miarê by³o g³adkie
+% K = ones(1,length(f));
+% w0=2*pi/fgr;
+% F = K./(1+w0.*f.*1i);
 H=Y./X;
-Hf=H.*(F');
-H = Hf;
+% Hf=H.*(F');
+Hf=lowpass(H,fgr,fs);
+%H = Hf;
 
 mod = abs(H);
-phase = unwrap(angle(F));
+phase = unwrap(angle(H));
 
 figure(1)
 set(gcf,'color','w');
 
 subplot(221)
 semilogx(f,20*log10(mod))
-title('wykres amplitudowo-czêstotliwoœciowy (skala logarytmiczna)')
+title('Wykres amplitudowo-czêstotliwoœciowy (skala logarytmiczna)')
 ylabel('Wzmocnienie [dB]');
-xlabel('czêstotliwoœæ [Hz]');
+xlabel('Czêstotliwoœæ [Hz]');
 grid on
+axis tight
+%axis([min(f) fn -5 5])
 
 subplot(223)
 semilogx(f, phase)
-title('wykres fazowo-czêstotliwoœciowy')
-ylabel('przesuniêcie w fazie [rad]');
-xlabel('czêstotliwoœæ [Hz]');
+title('Wykres fazowo-czêstotliwoœciowy')
+ylabel('Przesuniêcie w fazie [rad]');
+xlabel('Czêstotliwoœæ [Hz]');
 grid on
+axis tight
 
 subplot(222)
 plot(f,20*log10(mod))
-title('wykres amplitudowo-czêstotliwoœciowy (skala liniowa)')
+title('Wykres amplitudowo-czêstotliwoœciowy (skala liniowa)')
 ylabel('Wzmocnienie [dB]');
-xlabel('czêstotliwoœæ [Hz]');
+xlabel('Czêstotliwoœæ [Hz]');
 grid on
+axis tight
+%axis([min(f) fn -5 5])
 
 subplot(224)
 plot(f, phase)
-title('wykres fazowo-czêstotliwoœciowy')
-ylabel('przesuniêcie w fazie [rad]');
-xlabel('czêstotliwoœæ [Hz]');
+title('Wykres fazowo-czêstotliwoœciowy')
+ylabel('Przesuniêcie w fazie [rad]');
+xlabel('Czêstotliwoœæ [Hz]');
 grid on
-
-ma_nr = 100;
-H_ma = H;
-for i=1:length(H)
-    if  length(H)-ma_nr > i > ma_nr
-        H_ma(i) = mean(H(i-ma_nr:i+ma_nr)); 
-    else
-        if i < ma_nr
-            H_ma(i) = mean(H(1:i+ma_nr));
-        else
-            H_ma(i) = mean(H(i-ma_nr:-1));
-        end
-    end
-end
-figure(2)
-plot(f,abs(H_ma))
+axis tight

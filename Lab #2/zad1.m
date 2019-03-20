@@ -8,7 +8,7 @@ clear all
 Rxx= xcorr(x,x);
 Rxy= xcorr(x,y);
 
-t=(-length(Rxx)/2:length(Rxx)/2-1)/fs;%wektor czasu w Hz
+t=(-length(Rxx)/2:length(Rxx)/2-1)/fs;%wektor czasu w s
 figure(1)
 subplot(211)
 set(gcf,'color','w');
