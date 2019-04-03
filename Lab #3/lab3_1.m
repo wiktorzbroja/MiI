@@ -22,7 +22,9 @@ xlabel('Czêstotliwoœæ [kHz]')
 ylabel('Gêstoœæ widmowa mocy [dB/Hz]')
 
 subplot(212)
-pwelch(hn,[],[],[],fs)
+pwelch(hn,300,150,[],fs);
+% [Pxx,w]=pwelch(hn,[],80,[],fs);
+% plot(w,Pxx)
 title('Gêstoœæ widmowa mocy szumu bia³ego i sinusoidy - met. Welcha')
 xlabel('Czêstotliwoœæ [kHz]')
 ylabel('Gêstoœæ widmowa mocy [dB/Hz]')

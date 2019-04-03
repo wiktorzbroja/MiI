@@ -14,7 +14,7 @@ xlabel('Czêstotliwoœæ [kHz]')
 ylabel('Gêstoœæ widmowa mocy [dB/Hz]')
 
 figure (2)
-p=13;
+p=9;
 [a,g] = lpc(lpc_n,p);
 est_x= filter([0 -a(2:end)],1,lpc_n);
 e = lpc_n -est_x;
@@ -23,14 +23,14 @@ set(gcf,'color','w');
 subplot(211)
 plot(lags,acs), grid
 title 'Autokorelacja b³êdu predykcji'
-xlabel 'OpóŸnienie', ylabel 'Wartoœæ znormalizowana'
+xlabel 'OpóŸnienie', ylabel 'Amplituda'
 
 subplot(212)
 yi = randn(length(lpc_n),1);
 [acs2,lags] = xcorr(yi,'coeff');
 plot(lags,acs2)
 title 'Autokorelacja szumu bia³ego'
-xlabel 'OpóŸnienie', ylabel 'Wartoœæ znormalizowana'
+xlabel 'OpóŸnienie', ylabel 'Amplituda'
 
 figure (3)
 set(gcf,'color','w');
