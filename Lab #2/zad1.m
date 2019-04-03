@@ -12,7 +12,8 @@ t=(-length(Rxx)/2:length(Rxx)/2-1)/fs;%wektor czasu w s
 figure(1)
 subplot(211)
 set(gcf,'color','w');
-plot(t,Rxx)
+%plot(t,Rxx)
+semilogy(t,Rxx)
 axis tight %ustawienie limitu osi do zakresu danych
 %axis([-100 100 min(Rxx) max(Rxx)])
 xlabel('Czas [s]')
