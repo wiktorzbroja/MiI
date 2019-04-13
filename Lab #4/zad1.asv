@@ -1,0 +1,22 @@
+[x,fs]=audioread('noisyRecording.wav');
+%sptool
+[b,a]=tfdata(filt1,'v');
+y=filter(b,a,x);
+
+figure(1)
+set(gcf,'color','w');
+h1=bodeplot(filt1);
+setoptions(h1,'FreqUnits','Hz')
+grid on
+xlabel('Czestotliwosc')
+ylabel('Amplituda')
+title('Wykres Bodego dla FIR')
+
+
+figure(2)
+set(gcf,'color','w');
+h2=bodeplot(filt2);
+setoptions(h2,'FreqUnits','Hz')
+grid on
+xlabel('Czestotliwosc')
+title('Wykres Bodego dla IIR')
