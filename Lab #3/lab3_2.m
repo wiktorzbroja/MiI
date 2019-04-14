@@ -21,17 +21,17 @@ e = lpc_n -est_x;
 [acs,lags] = xcorr(e,'coeff');
 set(gcf,'color','w');
 subplot(211)
-plot(lags,acs), grid
+plot(lags/fs,acs), grid
 title 'Autokorelacja b³êdu predykcji'
-xlabel 'OpóŸnienie', ylabel 'Amplituda'
-
+xlabel 'OpóŸnienie [s]', ylabel 'Znormalizowana amplituda [-]'
+axis tight
 subplot(212)
 yi = randn(length(lpc_n),1);
 [acs2,lags] = xcorr(yi,'coeff');
-plot(lags,acs2)
+plot(lags/fs,acs2)
 title 'Autokorelacja szumu bia³ego'
-xlabel 'OpóŸnienie', ylabel 'Amplituda'
-
+xlabel 'OpóŸnienie [s]', ylabel 'Znormalizowana amplituda [-]'
+axis tight
 figure (3)
 set(gcf,'color','w');
 [h,w] = freqz(1,a);
