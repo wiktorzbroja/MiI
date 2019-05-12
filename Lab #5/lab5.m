@@ -33,9 +33,13 @@ plot(z1)
 subplot(224)
 plot(z2,'r')
 
-%% spektrogramy kana³ów po filtrowanku
+%% periodogramy kana³ów po filtrowanku
 figure(4)
 subplot(211)
 periodogram(z1,[],[],fs)
 subplot(212)
 periodogram(z2,[],[],fs)
+
+%% spektogram odfiltrowanego chuja
+figure(5)
+spectrogram(z2,WINDOW,NOVERLAP,NFFT,fs)
