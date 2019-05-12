@@ -72,14 +72,23 @@ plot(Z(:,1))
 subplot(212)
 plot(Z(:,1),'r')
 
-%% czesc 3
-Yp = fft([yp zeros(1,length(Y)-length(yp))]);
+%% czesc 3 -- nieeee too  chyba trzeba by³o
+Yp = fft(fliplr([yp zeros(1,length(Y)-length(yp))]));
 Yf = fft(Y);
-Rxy2(:,1) = ifft(Yf(:,1)'.*conj(Yp));
-Rxy2(:,2) = ifft(Yf(:,2)'.*conj(Yp));
-n2 = length(Rxy2(:,2));
+% Rxy2(:,1) = ifft(Yf(:,1)'.*conj(Yp)); %nie to samo :C
+% Rxy2(:,2) = ifft(Yf(:,2)'.*conj(Yp));
+% n2 = length(Rxy2(:,2));
+% figure(8)
+% subplot(121)
+% plot(Rxy2(n2/2:n2,1))
+% subplot(122)
+% plot(Rxy2(n2/2:n2,2))
+
+%% liczenie odpowiedzi
+Z2(:,1) = ifft(Yf(:,1)'.*(Yp));
+Z2(:,2) = ifft(Yf(:,2)'.*(Yp));
 figure(8)
 subplot(121)
-plot(Rxy2(n2/2:n2,1))
+plot(Z2(:,1))
 subplot(122)
-plot(Rxy2(n2/2:n2,2))
+plot(Z2(:,2))
