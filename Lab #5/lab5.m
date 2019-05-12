@@ -74,6 +74,7 @@ plot(Z(:,1),'r')
 
 %% czesc 3 -- nieeee too  chyba trzeba by³o
 Yp = fft(fliplr([yp zeros(1,length(Y)-length(yp))]));
+% Yp = fft([fliplr(yp), zeros(1,length(Y)-length(yp))]);
 Yf = fft(Y);
 % Rxy2(:,1) = ifft(Yf(:,1)'.*conj(Yp)); %nie to samo :C
 % Rxy2(:,2) = ifft(Yf(:,2)'.*conj(Yp));
@@ -84,11 +85,11 @@ Yf = fft(Y);
 % subplot(122)
 % plot(Rxy2(n2/2:n2,2))
 
-%% liczenie odpowiedzi
+%% liczenie odpowiedzi (powinno wyjœæ to co na F. 7)
 Z2(:,1) = ifft(Yf(:,1)'.*(Yp));
-Z2(:,2) = ifft(Yf(:,2)'.*(Yp));
+Z2(:,2) = ifft((Yp).*Yf(:,2)');
 figure(8)
-subplot(121)
+subplot(211)
 plot(Z2(:,1))
-subplot(122)
+subplot(212)
 plot(Z2(:,2))
