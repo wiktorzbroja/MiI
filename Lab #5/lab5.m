@@ -42,4 +42,22 @@ periodogram(z2,[],[],fs)
 
 %% spektogram odfiltrowanego chuja
 figure(5)
+subplot(211)
+spectrogram(z1,WINDOW,NOVERLAP,NFFT,fs)
+axis([0 0.25 2 3]);
+subplot(212)
+axis([0 0.25 2 3]);
 spectrogram(z2,WINDOW,NOVERLAP,NFFT,fs)
+axis([0 0.25 2 3]);
+
+%% autokorelacja (prawy kana³ wygryw)
+[Rxy(:,1) lags] = xcorr(y1,yp);
+[Rxy(:,2) lags] = xcorr(y2,yp);
+n1 = length(Rxy(:,2));
+figure(6)
+subplot(121)
+plot(Rxy(n1/2:n1,1))
+subplot(122)
+plot(Rxy(n1/2:n1,2))
+[ val, t1 ] = max(Rxy(n1/2:n1,2));
+t1 = t1/fs % wtedy siê zaczyna
