@@ -75,5 +75,11 @@ plot(Z(:,1),'r')
 %% czesc 3
 Yp = fft([yp zeros(1,length(Y)-length(yp))]);
 Yf = fft(Y);
-Rxy2(:,1) = Yf(:,1).*conj(Yp);
-Rxy2(:,2) = Yf(:,2).*conj(Yp);
+Rxy2(:,1) = ifft(Yf(:,1)'.*conj(Yp));
+Rxy2(:,2) = ifft(Yf(:,2)'.*conj(Yp));
+n2 = length(Rxy2(:,2));
+figure(8)
+subplot(121)
+plot(Rxy2(n2/2:n2,1))
+subplot(122)
+plot(Rxy2(n2/2:n2,2))
