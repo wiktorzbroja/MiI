@@ -61,3 +61,19 @@ subplot(122)
 plot(Rxy(n1/2:n1,2))
 [ val, t1 ] = max(Rxy(n1/2:n1,2));
 t1 = t1/fs % wtedy siê zaczyna
+
+%% jakiœ inny filter
+Z = filter(fliplr(yp),1,Y);
+
+%% wykresy czasowe przed i po filtrowanku
+figure(7)
+subplot(211)
+plot(Z(:,1))
+subplot(212)
+plot(Z(:,1),'r')
+
+%% czesc 3
+Yp = fft([yp zeros(1,length(Y)-length(yp))]);
+Yf = fft(Y);
+Rxy2(:,1) = Yf(:,1).*conj(Yp);
+Rxy2(:,2) = Yf(:,2).*conj(Yp);
